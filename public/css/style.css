@@ -393,7 +393,7 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .hero-title-slider { min-height: 20rem; margin-bottom: 44px; }
-  .hero-slide { font-size: clamp(2rem, 8vw, 2.6rem) !important; line-height: 1.２; }
+  .hero-slide { font-size: clamp(2rem, 8vw, 2.6rem) !important; line-height: 1.2; }
 }
 
 .hero-slide {
