@@ -383,17 +383,17 @@ ul { list-style: none; }
 .hero-title-slider {
   position: relative;
   min-height: clamp(11rem, 16vw, 12.5rem);
-  margin-bottom: 22px;
+  margin-bottom: 32px;
   animation: fadeUp 1s ease 0.6s both;
 }
 
 @media (max-width: 768px) {
-  .hero-title-slider { min-height: 15rem; }
+  .hero-title-slider { min-height: 18rem; margin-bottom: 40px; }
 }
 
 @media (max-width: 480px) {
-  .hero-title-slider { min-height: 17rem; }
-  .hero-slide { font-size: clamp(2.2rem, 9vw, 2.8rem); }
+  .hero-title-slider { min-height: 20rem; margin-bottom: 44px; }
+  .hero-slide { font-size: clamp(2rem, 8vw, 2.6rem) !important; line-height: 1.２; }
 }
 
 .hero-slide {
