@@ -696,6 +696,230 @@ ul { list-style: none; }
   word-break: break-word;
 }
 
+/* --- Premium Who We Help Section --- */
+#who-we-help {
+  background: linear-gradient(180deg, var(--navy) 0%, #050B18 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#who-we-help::before,
+#who-we-help::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+#who-we-help::before {
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  background: rgba(201, 162, 39, 0.12);
+}
+
+#who-we-help::after {
+  bottom: -100px;
+  left: -100px;
+  width: 380px;
+  height: 380px;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+#who-we-help .container {
+  position: relative;
+  z-index: 2;
+}
+
+#who-we-help .section-header {
+  text-align: left;
+  margin-bottom: 64px;
+  max-width: 640px;
+}
+
+#who-we-help .section-header .section-eyebrow {
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  margin-bottom: 16px;
+}
+
+#who-we-help .section-header .section-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-light), transparent);
+}
+
+#who-we-help .section-title {
+  color: var(--white);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+#who-we-help .section-title .gold-text {
+  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+#who-we-help .section-desc {
+  color: var(--text-light);
+  margin: 0;
+  opacity: 0.85;
+}
+
+#who-we-help .why-us-grid {
+  gap: 24px;
+  max-width: 1000px;
+}
+
+#who-we-help .why-us-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 60%);
+  border: none;
+  border-radius: 20px;
+  padding: 1px;
+  display: block;
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+#who-we-help .why-us-card:hover {
+  transform: translateY(-6px);
+}
+
+#who-we-help .why-us-card-inner {
+  background: #0A1225;
+  border-radius: 19px;
+  padding: 28px;
+  height: 100%;
+  transition: var(--transition);
+}
+
+#who-we-help .why-us-card:hover .why-us-card-inner {
+  background: #0f1930;
+}
+
+#who-we-help .why-us-card .card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#who-we-help .why-us-card .icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  transition: var(--transition);
+}
+
+#who-we-help .why-us-card:hover .icon-wrap {
+  background: rgba(201, 162, 39, 0.2);
+  border-color: rgba(201, 162, 39, 0.35);
+  transform: scale(1.05);
+}
+
+#who-we-help .why-us-card .icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.5;
+}
+
+#who-we-help .why-us-card .card-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.15);
+}
+
+#who-we-help .why-us-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#who-we-help .why-us-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+#who-we-help .trusted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  margin-top: 56px;
+}
+
+#who-we-help .trusted-badge .pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse-gold 2s infinite;
+}
+
+#who-we-help .trusted-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+@media (max-width: 768px) {
+  #who-we-help .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  #who-we-help .section-header .section-eyebrow {
+    justify-content: center;
+  }
+  #who-we-help .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+  #who-we-help .why-us-card-inner {
+    padding: 24px;
+  }
+  #who-we-help .why-us-card h4 {
+    font-size: 1.15rem;
+  }
+  #who-we-help .why-us-card p {
+    font-size: 0.9rem;
+  }
+  #who-we-help .trusted-badge {
+    margin-top: 40px;
+  }
+}
+
 .venture-card {
   background: var(--navy-light);
   border-radius: var(--radius);
