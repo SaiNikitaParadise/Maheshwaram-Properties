@@ -47,11 +47,12 @@
     </div>
   </nav>
 
+  <!-- Top Hero Header (Using soft background image so text is clearly legible) -->
   <section class="page-hero" id="page-hero">
-    <div class="page-hero-bg" style="background-image: url('../images/chalapathi-melbourne-kadthal.jpg');"></div>
+    <div class="page-hero-bg" style="background-image: url('../images/hero_bg.jpg');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-      <p class="section-eyebrow">Venture — Kadthal, Hyderabad</p>
+      <p class="section-eyebrow">VENTURE — KADTHAL, HYDERABAD</p>
       <h1>Chalapathi <span class="gold-text">Melbourne Kadthal</span></h1>
       <p>An 82-acre ready-to-move premium plotted township by Chalapathi Estates Pvt. Ltd. on Srisailam Highway — DTCP & RERA approved, with world-class amenities and unmatched connectivity to Pharma City.</p>
     </div>
@@ -71,8 +72,14 @@
     <div class="container">
       <div class="venture-detail-grid">
         <div class="venture-overview">
-          <img src="../images/chalapathi-melbourne-kadthal.jpg" alt="Chalapathi Melbourne Kadthal" class="venture-main-img" />
-          <div class="venture-highlight-bar">
+          <!-- Main Image Fix: Prevents side-cropping on mobile screens -->
+          <img 
+            src="../images/chalapathi-melbourne-kadthal.jpg" 
+            alt="Chalapathi Melbourne Kadthal" 
+            class="venture-main-img" 
+            style="width:100%; height:auto; object-fit:contain; max-height:none; border-radius:16px;" 
+          />
+          <div class="venture-highlight-bar" style="margin-top:20px;">
             <span class="highlight-pill">✅ DTCP Approved</span>
             <span class="highlight-pill">🏛️ RERA Approved</span>
             <span class="highlight-pill">🏞️ 82 Acres</span>
