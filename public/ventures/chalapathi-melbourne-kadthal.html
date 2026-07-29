@@ -8,6 +8,21 @@
 
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Mobile-only gap adjustment for the hero header */
+    @media (max-width: 768px) {
+      .page-hero#page-hero {
+        padding-top: 105px !important;
+        padding-bottom: 40px !important;
+        min-height: auto !important;
+      }
+      .page-hero-content .section-eyebrow {
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar scrolled" id="navbar">
@@ -47,7 +62,7 @@
     </div>
   </nav>
 
-  <!-- Subpage Header matching Chalapathi Paradise setup -->
+  <!-- Subpage Header -->
   <section class="page-hero" id="page-hero">
     <div class="page-hero-bg" style="background-image: url('../images/hero_bg.jpg');"></div>
     <div class="page-hero-overlay"></div>
