@@ -2014,6 +2014,13 @@ ul { list-style: none; }
     gap: 4px;
   }
   .spec-val { text-align: left; }
+
+  /* --- Mobile-Only Venture Main Image Fix --- */
+  .venture-main-img {
+    height: 320px !important;
+    object-fit: cover !important;
+    object-position: left center !important;
+  }
 }
 
 @media (max-width: 480px) {
