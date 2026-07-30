@@ -1954,6 +1954,11 @@ ul { list-style: none; }
     flex-direction: column;
     gap: 0;
     padding: 20px 0 32px;
+    max-height: calc(100vh - 80px);
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -1977,6 +1982,8 @@ ul { list-style: none; }
     background: rgba(255,255,255,0.05);
     border-radius: 0;
     display: none;
+    max-height: none;
+    overflow: visible;
   }
   .dropdown.open .dropdown-menu { display: block; }
   .hamburger { display: flex; }
