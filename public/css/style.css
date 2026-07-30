@@ -2022,12 +2022,17 @@ ul { list-style: none; }
   }
   .spec-val { text-align: left; }
 
-  /* --- Mobile-Only Venture Main Image Fix --- */
+  /* --- Mobile: show full image, no cropping --- */
   .venture-main-img {
-    height: 320px !important;
-    object-fit: cover !important;
-    object-position: left center !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: var(--navy-light);
   }
+  .venture-img-wrap { height: auto !important; aspect-ratio: 16 / 10; }
+  .venture-img { object-fit: cover; object-position: center; }
+  .page-hero-bg { background-size: cover; background-position: center; }
 }
 
 @media (max-width: 480px) {
