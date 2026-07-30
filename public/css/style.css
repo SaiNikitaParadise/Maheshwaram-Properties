@@ -1982,6 +1982,8 @@ ul { list-style: none; }
     background: rgba(255,255,255,0.05);
     border-radius: 0;
     display: none;
+    max-height: none;
+    overflow: visible;
   }
   .dropdown.open .dropdown-menu { display: block; }
   .hamburger { display: flex; }
