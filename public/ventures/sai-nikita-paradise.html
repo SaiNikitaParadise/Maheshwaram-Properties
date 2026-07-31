@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Venture Image Fix for Desktop & Mobile (Prevents Cropping / Zoom) */
+    /* Venture Main Image Framing Fix */
     .venture-main-img {
       width: 100% !important;
-      height: auto !important;
-      max-height: 480px !important;
-      object-fit: contain !important;
-      background-color: #f8f9fa;
+      height: 420px !important;
+      object-fit: cover !important;
+      object-position: center 30% !important;
       border-radius: 12px;
       margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     /* Outlined Amenity Item Styling (Compact Size) */
@@ -41,12 +41,11 @@
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       .page-hero-bg {
-        background-size: contain !important;
-        background-repeat: no-repeat !important;
-        background-position: center top !important;
+        background-size: cover !important;
+        background-position: center !important;
       }
       .venture-main-img {
-        max-height: 320px !important;
+        height: 280px !important;
       }
     }
   </style>
