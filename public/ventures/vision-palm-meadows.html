@@ -8,7 +8,59 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Inline CSS Fix for Mobile Cropping */
+    /* Amenity Board / Box Styling */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .amenity-card-board {
+      background: #ffffff;
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .amenity-card-board:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(201, 162, 39, 0.15);
+      border-color: var(--gold, #c9a227);
+    }
+    .amenity-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .amenity-card-icon {
+      font-size: 1.5rem;
+      background: #fdfaf3;
+      border: 1px solid rgba(201, 162, 39, 0.2);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .amenity-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .amenity-card-desc {
+      font-size: 0.88rem;
+      color: #556070;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Mobile Cropping Fix */
     @media (max-width: 768px) {
       .page-hero-bg {
         background-size: contain !important;
@@ -54,15 +106,51 @@
           <p>Vision Palm Meadows, developed by Vision Meadows Estates and Developers Pvt. Ltd., is a picturesque 16-acre residential gated community nestled in Mansanpally, Maheshwaram Mandal, Ranga Reddy District. Offering 203 thoughtfully designed residential plots, Vision Palm Meadows is the ideal destination for families seeking tranquil, secure and well-connected living.</p>
           <p>Every element has been designed with family comfort and safety in mind — from 24/7 security to full infrastructure. Its DTCP approval guarantees full legal compliance for confident investment.</p>
           <p>Despite its peaceful setting, Vision Palm Meadows enjoys exceptional connectivity — quick access to the Outer Ring Road, Rajiv Gandhi International Airport and the expanding Hyderabad Pharma City, making it a compelling long-term investment choice.</p>
+          
           <h2 style="margin-top:40px;">Community Amenities</h2>
           <div class="amenities-grid">
-            <div class="amenity-item"><div class="amenity-icon">🔒</div><div class="amenity-text"><strong>24/7 Security</strong><span>Round-the-clock gated security with trained guards</span></div></div>
-            <div class="amenity-item"><div class="amenity-icon">🌿</div><div class="amenity-text"><strong>Landscaped Gardens</strong><span>Curated green spaces and garden zones throughout</span></div></div>
-            <div class="amenity-item"><div class="amenity-icon">🚿</div><div class="amenity-text"><strong>Underground Drainage</strong><span>Modern UGD system for hygienic waste management</span></div></div>
-            <div class="amenity-item"><div class="amenity-icon">🛣️</div><div class="amenity-text"><strong>Roads</strong><span>Well-laid internal roads for smooth vehicle movement</span></div></div>
-            <div class="amenity-item"><div class="amenity-icon">💧</div><div class="amenity-text"><strong>Water Supply</strong><span>Reliable piped water supply network to all plots</span></div></div>
+            <div class="amenity-card-board">
+              <div class="amenity-card-header">
+                <div class="amenity-card-icon">🔒</div>
+                <h3 class="amenity-card-title">24/7 Security</h3>
+              </div>
+              <p class="amenity-card-desc">Round-the-clock gated security with trained guards ensuring community safety.</p>
+            </div>
+
+            <div class="amenity-card-board">
+              <div class="amenity-card-header">
+                <div class="amenity-card-icon">🌿</div>
+                <h3 class="amenity-card-title">Landscaped Gardens</h3>
+              </div>
+              <p class="amenity-card-desc">Curated green spaces and garden zones throughout the project.</p>
+            </div>
+
+            <div class="amenity-card-board">
+              <div class="amenity-card-header">
+                <div class="amenity-card-icon">🚿</div>
+                <h3 class="amenity-card-title">Underground Drainage</h3>
+              </div>
+              <p class="amenity-card-desc">Modern underground drainage (UGD) system for clean and hygienic waste management.</p>
+            </div>
+
+            <div class="amenity-card-board">
+              <div class="amenity-card-header">
+                <div class="amenity-card-icon">🛣️</div>
+                <h3 class="amenity-card-title">Roads</h3>
+              </div>
+              <p class="amenity-card-desc">Well-laid internal roads designed for smooth, comfortable vehicle movement.</p>
+            </div>
+
+            <div class="amenity-card-board">
+              <div class="amenity-card-header">
+                <div class="amenity-card-icon">💧</div>
+                <h3 class="amenity-card-title">Water Supply</h3>
+              </div>
+              <p class="amenity-card-desc">Reliable piped water supply network extended to every plot.</p>
+            </div>
           </div>
         </div>
+
         <div class="sidebar-card" id="venture-sidebar">
           <h3>Project Specifications</h3>
           <div class="spec-list">
