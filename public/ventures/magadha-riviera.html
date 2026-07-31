@@ -4,9 +4,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magadha Riviera | Maheshwaram Properties</title>
-  <meta name="description" content="Magadha Riviera — DTCP approved eco-friendly plotted community near Pendyal village, Maheshwaram mandal, Hyderabad. Two natural lakes, tree-lined avenues, clubhouse, underground drainage and blacktop roads, 15 km from Shamshabad International Airport." />
+  <meta name="description" content="Magadha Riviera — DTCP approved eco-friendly plotted community near Pendyal village, Maheshwaram mandal, Hyderabad. Two natural lakes, tree-lined avenues, underground drainage and blacktop roads, 15 km from Shamshabad International Airport." />
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Venture Main Image Framing Fix */
+    .venture-main-img {
+      width: 100% !important;
+      height: 420px !important;
+      object-fit: cover !important;
+      object-position: center 30% !important;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Clean Amenities Grid without Outer Border Lines */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .amenity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: none !important; /* Outer lines removed */
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+    .amenity-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+    .amenity-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .amenity-text strong {
+      display: block;
+      color: var(--navy, #0a192f);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    .amenity-text span {
+      display: block;
+      color: #666;
+      font-size: 0.825rem;
+      line-height: 1.35;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .page-hero-bg {
+        background-size: cover !important;
+        background-position: center !important;
+      }
+      .venture-main-img {
+        height: 280px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- ========== NAVBAR ========== -->
@@ -57,7 +120,7 @@
     <div class="page-hero-content">
       <p class="section-eyebrow">Venture — Pendyal Village, Maheshwaram Mandal, Hyderabad</p>
       <h1>Magadha <span class="gold-text">Riviera</span></h1>
-      <p>An eco-friendly DTCP approved plotted township set along the shorelines of two natural lakes — tree-lined avenues, landscaped gardens and a full clubhouse lifestyle, just 15 km from Shamshabad International Airport.</p>
+      <p>An eco-friendly DTCP approved plotted township set along the shorelines of two natural lakes — tree-lined avenues, landscaped gardens, just 15 km from Shamshabad International Airport.</p>
     </div>
   </section>
 
@@ -103,13 +166,6 @@
               </div>
             </div>
             <div class="amenity-item">
-              <div class="amenity-icon">🏛️</div>
-              <div class="amenity-text">
-                <strong>Clubhouse</strong>
-                <span>Fully equipped clubhouse with modern amenities</span>
-              </div>
-            </div>
-            <div class="amenity-item">
               <div class="amenity-icon">🛣️</div>
               <div class="amenity-text">
                 <strong>Blacktop Roads</strong>
@@ -147,7 +203,7 @@
           </div>
 
           <h3 style="font-size:1.1rem;margin-top:20px;">Enquire Now</h3>
-          <form class="contact-form-mini" id="venture-inquiry-form">
+          <form class="contact-form-mini" id="venture-inquiry-form" onsubmit="sendToWhatsApp(event)">
             <input type="text" id="mr-name" placeholder="Your Full Name" required />
             <input type="tel" id="mr-phone" placeholder="Phone / WhatsApp" required />
             <input type="email" id="mr-email" placeholder="Email (optional)" />
@@ -221,6 +277,24 @@
       <span class="float-label">Call Us</span>
     </a>
   </div>
+
+  <!-- WhatsApp Script for Form Submission -->
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById('mr-name').value;
+      const phone = document.getElementById('mr-phone').value;
+      const email = document.getElementById('mr-email').value;
+      const message = document.getElementById('mr-message').value;
+
+      let text = `Hi, I'm interested in Magadha Riviera.\n\n*Name:* ${name}\n*Phone:* ${phone}`;
+      if (email) text += `\n*Email:* ${email}`;
+      if (message) text += `\n*Requirements:* ${message}`;
+
+      const whatsappUrl = `https://wa.me/919908224832?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
 
   <script src="../js/main.js"></script>
 </body>
