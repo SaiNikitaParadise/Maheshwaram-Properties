@@ -8,56 +8,23 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Amenity Board / Box Styling */
+    /* Outlined Amenity Item Fix (Original Compact Size) */
     .amenities-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
       margin-top: 20px;
     }
-    .amenity-card-board {
-      background: #ffffff;
-      border: 1px solid rgba(201, 162, 39, 0.3);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .amenity-card-board:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(201, 162, 39, 0.15);
-      border-color: var(--gold, #c9a227);
-    }
-    .amenity-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .amenity-card-icon {
-      font-size: 1.5rem;
-      background: #fdfaf3;
-      border: 1px solid rgba(201, 162, 39, 0.2);
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .amenity-item {
+      border: 1px solid rgba(201, 162, 39, 0.35);
       border-radius: 8px;
+      padding: 12px 14px;
+      background: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .amenity-card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #111827;
-      margin: 0;
-    }
-    .amenity-card-desc {
-      font-size: 0.88rem;
-      color: #556070;
-      line-height: 1.5;
-      margin: 0;
+    .amenity-item:hover {
+      border-color: var(--gold, #c9a227);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     /* Mobile Cropping Fix */
@@ -109,45 +76,11 @@
           
           <h2 style="margin-top:40px;">Community Amenities</h2>
           <div class="amenities-grid">
-            <div class="amenity-card-board">
-              <div class="amenity-card-header">
-                <div class="amenity-card-icon">🔒</div>
-                <h3 class="amenity-card-title">24/7 Security</h3>
-              </div>
-              <p class="amenity-card-desc">Round-the-clock gated security with trained guards ensuring community safety.</p>
-            </div>
-
-            <div class="amenity-card-board">
-              <div class="amenity-card-header">
-                <div class="amenity-card-icon">🌿</div>
-                <h3 class="amenity-card-title">Landscaped Gardens</h3>
-              </div>
-              <p class="amenity-card-desc">Curated green spaces and garden zones throughout the project.</p>
-            </div>
-
-            <div class="amenity-card-board">
-              <div class="amenity-card-header">
-                <div class="amenity-card-icon">🚿</div>
-                <h3 class="amenity-card-title">Underground Drainage</h3>
-              </div>
-              <p class="amenity-card-desc">Modern underground drainage (UGD) system for clean and hygienic waste management.</p>
-            </div>
-
-            <div class="amenity-card-board">
-              <div class="amenity-card-header">
-                <div class="amenity-card-icon">🛣️</div>
-                <h3 class="amenity-card-title">Roads</h3>
-              </div>
-              <p class="amenity-card-desc">Well-laid internal roads designed for smooth, comfortable vehicle movement.</p>
-            </div>
-
-            <div class="amenity-card-board">
-              <div class="amenity-card-header">
-                <div class="amenity-card-icon">💧</div>
-                <h3 class="amenity-card-title">Water Supply</h3>
-              </div>
-              <p class="amenity-card-desc">Reliable piped water supply network extended to every plot.</p>
-            </div>
+            <div class="amenity-item"><div class="amenity-icon">🔒</div><div class="amenity-text"><strong>24/7 Security</strong><span>Round-the-clock gated security with trained guards</span></div></div>
+            <div class="amenity-item"><div class="amenity-icon">🌿</div><div class="amenity-text"><strong>Landscaped Gardens</strong><span>Curated green spaces and garden zones throughout</span></div></div>
+            <div class="amenity-item"><div class="amenity-icon">🚿</div><div class="amenity-text"><strong>Underground Drainage</strong><span>Modern UGD system for hygienic waste management</span></div></div>
+            <div class="amenity-item"><div class="amenity-icon">🛣️</div><div class="amenity-text"><strong>Roads</strong><span>Well-laid internal roads for smooth vehicle movement</span></div></div>
+            <div class="amenity-item"><div class="amenity-icon">💧</div><div class="amenity-text"><strong>Water Supply</strong><span>Reliable piped water supply network to all plots</span></div></div>
           </div>
         </div>
 
