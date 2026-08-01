@@ -153,15 +153,18 @@ ul { list-style: none; }
   padding: 0;
   height: 80px;
   transition: var(--transition);
-  background: transparent;
+  background: rgba(13, 27, 42, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .navbar.scrolled {
-  background: rgba(13, 27, 42, 0.96);
+  background: rgba(13, 27, 42, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
+
 
 .nav-container {
   max-width: 1300px;
