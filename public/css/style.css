@@ -1503,10 +1503,10 @@ ul { list-style: none; }
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: var(--off-white);
+  background: #ffffff;
   border-radius: var(--radius-sm);
   padding: 16px;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(201,162,39,0.35);
   transition: var(--transition);
 }
 
