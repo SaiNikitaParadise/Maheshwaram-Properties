@@ -2163,3 +2163,7 @@ ul { list-style: none; }
   #services-section .sv-icon svg { width: 22px; height: 22px; }
   #services-section .sv-card h3 { font-size: 1.1rem; }
 }
+
+/* Clickable venture cover images */
+.venture-img-link { display: block; cursor: pointer; }
+.venture-img-link .venture-img-wrap { position: relative; }
