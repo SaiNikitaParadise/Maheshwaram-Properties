@@ -71,27 +71,70 @@ function initAnimations() {
   });
 }
 
-// Contact form submission handler
+// Contact form submission handler -> opens WhatsApp with the enquiry
+const WHATSAPP_NUMBER = '919908224832';
+
 function initContactForm() {
   const form = document.getElementById('main-contact-form');
   if (!form) return;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const val = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.value.trim().slice(0, 1000) : '';
+    };
+
+    const firstName = val('first-name');
+    const lastName = val('last-name');
+    const phone = val('phone');
+    const email = val('email');
+    const budget = val('budget');
+    const message = val('message');
+
+    const ventureEl = document.getElementById('venture-interest');
+    const venture =
+      ventureEl && ventureEl.selectedIndex > 0
+        ? ventureEl.options[ventureEl.selectedIndex].text.trim()
+        : '';
+
+    if (!firstName || !phone) {
+      alert('Please enter your name and phone number.');
+      return;
+    }
+
+    const lines = [
+      'New Enquiry — Maheshwaram Properties',
+      '',
+      `Name: ${firstName}${lastName ? ' ' + lastName : ''}`,
+      `Phone: ${phone}`,
+    ];
+    if (email) lines.push(`Email: ${email}`);
+    if (venture) lines.push(`Venture of Interest: ${venture}`);
+    if (budget) lines.push(`Budget: ${budget}`);
+    if (message) lines.push('', `Message: ${message}`);
+
+    const url =
+      'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+
     const btn = form.querySelector('[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    if (btn) {
+      btn.textContent = 'Opening WhatsApp...';
+      btn.disabled = true;
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+
     setTimeout(() => {
-      btn.textContent = '✅ Message Sent!';
-      btn.style.background = 'linear-gradient(135deg, #25D366, #128C7E)';
       form.reset();
-      setTimeout(() => {
+      if (btn) {
         btn.textContent = 'Send Enquiry';
-        btn.style.background = '';
         btn.disabled = false;
-      }, 3500);
-    }, 1200);
+      }
+    }, 1500);
   });
 }
+
 
 // Mini inquiry form on venture pages
 function initMiniForm() {
