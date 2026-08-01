@@ -364,7 +364,7 @@ ul { list-style: none; }
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 860px;
+  max-width: 900px;
   padding: 0 24px;
   animation: fadeUp 1s ease 0.2s both;
 }
@@ -399,12 +399,12 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .hero-title-slider { margin-bottom: 16px; }
-  .hero-slide { font-size: clamp(1.5rem, 5vw, 2.1rem) !important; line-height: 1.2; }
+  .hero-slide { font-size: clamp(1.8rem, 6.2vw, 2.6rem) !important; line-height: 1.25; }
 }
 
 .hero-slide {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.8vw, 3.5rem);
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
   font-weight: 700;
   color: var(--white);
   line-height: 1.15;
@@ -433,9 +433,9 @@ ul { list-style: none; }
 }
 
 .hero-subtitle {
-  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
   color: rgba(255,255,255,0.8);
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto 38px;
   animation: fadeUp 1s ease 0.8s both;
 }
