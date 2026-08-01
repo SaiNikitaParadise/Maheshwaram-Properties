@@ -329,7 +329,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: 120px; /* Ensures desktop content sits below the 80px fixed nav bar plus breathing room */
+  padding-top: 130px;
   padding-bottom: 60px;
   box-sizing: border-box;
 }
@@ -399,12 +399,12 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .hero-title-slider { margin-bottom: 16px; }
-  .hero-slide { font-size: clamp(1.8rem, 6.5vw, 2.4rem) !important; line-height: 1.2; }
+  .hero-slide { font-size: clamp(1.5rem, 5vw, 2.1rem) !important; line-height: 1.2; }
 }
 
 .hero-slide {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+  font-size: clamp(1.8rem, 3.8vw, 3.5rem);
   font-weight: 700;
   color: var(--white);
   line-height: 1.15;
@@ -686,9 +686,7 @@ ul { list-style: none; }
   min-width: 0;
 }
 
-.why-us-card > div {
-  min-width: 0;
-}
+.why-us-card > div { min-width: 0; }
 
 .why-us-card h4,
 .why-us-card p {
@@ -1434,7 +1432,7 @@ ul { list-style: none; }
   .hero-stats { flex-direction: column; gap: 24px; padding: 28px 20px; }
   .hero {
     align-items: center;
-    padding-top: 120px;
+    padding-top: 130px;
     padding-bottom: 60px;
     box-sizing: border-box;
   }
