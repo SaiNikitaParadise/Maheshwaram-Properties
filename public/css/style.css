@@ -165,7 +165,6 @@ ul { list-style: none; }
   box-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
 
-
 .nav-container {
   max-width: 1300px;
   margin: 0 auto;
@@ -1011,6 +1010,10 @@ ul { list-style: none; }
 
 .ventures-cta { text-align: center; margin-top: 56px; }
 
+/* Clickable venture cover images */
+.venture-img-link { display: block; cursor: pointer; }
+.venture-img-link .venture-img-wrap { position: relative; }
+
 /* ==========================================
    ABOUT SECTION
    ========================================== */
@@ -1592,7 +1595,7 @@ ul { list-style: none; }
 .contact-form-mini .btn { width: 100%; }
 
 /* ==========================================
-   SERVICES PAGE
+   SERVICES PAGE & COMPREHENSIVE LUXURY SERVICES
    ========================================== */
 .services-grid {
   display: grid;
@@ -1647,6 +1650,117 @@ ul { list-style: none; }
   font-size: 0.92rem;
   color: #556070;
   line-height: 1.8;
+}
+
+/* Midnight luxury editorial redesign for Services Section */
+#services-section.sv-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--navy) 0%, #050B18 100%);
+  overflow: hidden;
+}
+#services-section .sv-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+#services-section .sv-bg-glow-1 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(201,162,39,0.35), transparent 70%);
+  top: -140px; left: -120px;
+}
+#services-section .sv-bg-glow-2 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(201,162,39,0.22), transparent 70%);
+  bottom: -160px; right: -140px;
+}
+#services-section .container { position: relative; z-index: 1; }
+
+#services-section .sv-eyebrow {
+  color: var(--gold-light) !important;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+#services-section .sv-title {
+  color: var(--white) !important;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+#services-section .sv-title-accent {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-style: italic;
+}
+#services-section .sv-desc {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+#services-section .sv-grid {
+  gap: 20px;
+}
+
+#services-section .sv-card {
+  background: linear-gradient(135deg, rgba(201,162,39,0.45), rgba(201,162,39,0.05) 55%, transparent);
+  padding: 1px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 20px 40px -25px rgba(0,0,0,0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+#services-section .sv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -25px rgba(201,162,39,0.35);
+}
+#services-section .sv-card-inner {
+  background: #0A1225;
+  border-radius: 13px;
+  padding: 28px 24px;
+  height: 100%;
+  transition: background 0.3s ease;
+}
+#services-section .sv-card:hover .sv-card-inner {
+  background: #101c34;
+}
+#services-section .sv-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+#services-section .sv-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light);
+}
+#services-section .sv-icon svg { width: 24px; height: 24px; }
+#services-section .sv-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: rgba(201,162,39,0.5);
+}
+#services-section .sv-card h3 {
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+#services-section .sv-card p {
+  color: rgba(203,213,225,0.75);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* Process Section */
@@ -2036,6 +2150,12 @@ ul { list-style: none; }
   .venture-img-wrap { height: auto !important; aspect-ratio: 16 / 10; }
   .venture-img { object-fit: cover; object-position: center; }
   .page-hero-bg { background-size: cover; background-position: center; }
+
+  /* Services Midnight Section Mobile Adjustments */
+  #services-section .sv-card-inner { padding: 24px 20px; }
+  #services-section .sv-icon { width: 42px; height: 42px; }
+  #services-section .sv-icon svg { width: 22px; height: 22px; }
+  #services-section .sv-card h3 { font-size: 1.1rem; }
 }
 
 @media (max-width: 480px) {
@@ -2045,128 +2165,3 @@ ul { list-style: none; }
   .hero-stats { margin-top: 40px; }
   .why-us-card { padding: 24px 20px; gap: 14px; }
 }
-
-/* ============================================
-   Services Page - Comprehensive Real Estate Services
-   Midnight luxury editorial premium redesign
-   ============================================ */
-#services-section.sv-section {
-  position: relative;
-  background: linear-gradient(180deg, #0D1B2A 0%, #050B18 100%);
-  overflow: hidden;
-}
-#services-section .sv-bg-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
-}
-#services-section .sv-bg-glow-1 {
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(197,160,89,0.35), transparent 70%);
-  top: -140px; left: -120px;
-}
-#services-section .sv-bg-glow-2 {
-  width: 520px; height: 520px;
-  background: radial-gradient(circle, rgba(197,160,89,0.22), transparent 70%);
-  bottom: -160px; right: -140px;
-}
-#services-section .container { position: relative; z-index: 1; }
-
-#services-section .sv-eyebrow {
-  color: #C5A059 !important;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-#services-section .sv-title {
-  color: #ffffff !important;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-}
-#services-section .sv-title-accent {
-  background: linear-gradient(90deg, #C5A059 0%, #F2D091 50%, #C5A059 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  font-style: italic;
-}
-#services-section .sv-desc {
-  color: rgba(255,255,255,0.65) !important;
-}
-
-#services-section .sv-grid {
-  gap: 20px;
-}
-
-#services-section .sv-card {
-  background: linear-gradient(135deg, rgba(197,160,89,0.45), rgba(197,160,89,0.05) 55%, transparent);
-  padding: 1px;
-  border-radius: 14px;
-  border: none;
-  box-shadow: 0 20px 40px -25px rgba(0,0,0,0.6);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-#services-section .sv-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 60px -25px rgba(197,160,89,0.35);
-}
-#services-section .sv-card-inner {
-  background: #0A1225;
-  border-radius: 13px;
-  padding: 28px 24px;
-  height: 100%;
-  transition: background 0.3s ease;
-}
-#services-section .sv-card:hover .sv-card-inner {
-  background: #101c34;
-}
-#services-section .sv-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-#services-section .sv-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(197,160,89,0.12);
-  border: 1px solid rgba(197,160,89,0.25);
-  display: flex; align-items: center; justify-content: center;
-  color: #F2D091;
-}
-#services-section .sv-icon svg { width: 24px; height: 24px; }
-#services-section .sv-num {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.4rem;
-  color: rgba(197,160,89,0.5);
-}
-#services-section .sv-card h3 {
-  color: #ffffff;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin: 0 0 10px;
-}
-#services-section .sv-card p {
-  color: rgba(203,213,225,0.75);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  #services-section .sv-card-inner { padding: 24px 20px; }
-  #services-section .sv-icon { width: 42px; height: 42px; }
-  #services-section .sv-icon svg { width: 22px; height: 22px; }
-  #services-section .sv-card h3 { font-size: 1.1rem; }
-}
-
-/* Clickable venture cover images */
-.venture-img-link { display: block; cursor: pointer; }
-.venture-img-link .venture-img-wrap { position: relative; }
