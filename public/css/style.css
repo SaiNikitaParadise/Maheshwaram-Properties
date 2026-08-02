@@ -2170,3 +2170,16 @@ margin: 0;
 /* Clickable venture cover images */
 .venture-img-link { display: block; cursor: pointer; }
 .venture-img-link .venture-img-wrap { position: relative; }
+
+/* Venture search */
+.venture-search-wrap { max-width: 620px; margin: 0 auto 36px; }
+.venture-search-box { position: relative; display: flex; align-items: center; }
+.venture-search-icon { position: absolute; left: 18px; font-size: 1rem; opacity: .6; pointer-events: none; }
+.venture-search-box input {
+  width: 100%; padding: 15px 20px 15px 48px; font-family: inherit; font-size: .98rem;
+  color: var(--navy, #0d1b2a); background: #fff; border: 1px solid rgba(201,162,39,0.45);
+  border-radius: 50px; outline: none; transition: box-shadow .25s, border-color .25s;
+}
+.venture-search-box input::placeholder { color: rgba(13,27,42,0.45); }
+.venture-search-box input:focus { border-color: var(--gold, #c9a227); box-shadow: 0 0 0 4px rgba(201,162,39,0.15); }
+.venture-search-count { text-align: center; margin-top: 12px; font-size: .88rem; color: rgba(13,27,42,0.6); }
