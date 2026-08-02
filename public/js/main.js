@@ -249,6 +249,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initMiniForm();
   setActiveNav();
   initHeroSlider();
+  initVentureSearch();
   // Start with scrolled navbar if not at top
   if (window.scrollY > 60) navbar.classList.add('scrolled');
 });
+
+// Venture search filter
+function initVentureSearch() {
+  const input = document.getElementById('venture-search');
+  const grid = document.getElementById('ventures-grid');
+  if (!input || !grid) return;
+  const countEl = document.getElementById('venture-search-count');
+  const cards = Array.from(grid.querySelectorAll('.venture-card'));
+
+  function apply() {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const match = !q || card.textContent.toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    if (countEl) {
+      countEl.textContent = q
+        ? (visible ? `Showing ${visible} of ${cards.length} ventures` : 'No ventures match your search')
+        : '';
+    }
+  }
+  input.addEventListener('input', apply);
+}
