@@ -392,12 +392,12 @@ animation: fadeUp 1s ease 0.6s both;
 }
 
 @media (max-width: 768px) {
-.hero-content { padding-top: 100px; }
+.hero-content { padding-top: 80px; }
 .hero-title-slider { margin-bottom: 18px; }
 }
 
 @media (max-width: 480px) {
-.hero-content { padding-top: 90px; }
+.hero-content { padding-top: 80px; }
 .hero-title-slider { margin-bottom: 16px; }
 .hero-slide { font-size: clamp(2rem, 8vw, 2.6rem) !important; line-height: 1.2; }
 }
@@ -1994,8 +1994,8 @@ overflow: visible;
 .hamburger { display: flex; }
 .hero-stats { flex-direction: column; gap: 24px; padding: 28px 20px; }
 .hero {
-align-items: flex-start;
-padding-top: 120px;
+align-items: center;
+padding-top: 80px;
 padding-bottom: 60px;
 box-sizing: border-box;
 }
