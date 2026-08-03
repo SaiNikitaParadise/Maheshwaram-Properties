@@ -278,3 +278,56 @@ function initVentureSearch() {
   }
   input.addEventListener('input', apply);
 }
+
+// Navbar venture search (uses the page's own ventures dropdown for correct paths)
+function initNavSearch() {
+  const wraps = document.querySelectorAll('.nav-search');
+  if (!wraps.length) return;
+
+  const items = Array.from(document.querySelectorAll('.dropdown-menu a')).map((a) => ({
+    name: a.textContent.trim(),
+    href: a.getAttribute('href'),
+  }));
+
+  wraps.forEach((wrap) => {
+    const input = wrap.querySelector('.nav-search-input');
+    const list = wrap.querySelector('.nav-search-results');
+    if (!input || !list) return;
+
+    function render(q) {
+      list.innerHTML = '';
+      if (!q) { list.classList.remove('open'); return; }
+      const matches = items.filter((it) => it.name.toLowerCase().includes(q));
+      if (!matches.length) {
+        list.innerHTML = '<li class="nav-search-empty">No ventures found</li>';
+      } else {
+        matches.slice(0, 10).forEach((it) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = it.href;
+          a.textContent = it.name;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      }
+      list.classList.add('open');
+    }
+
+    input.addEventListener('input', () => render(input.value.trim().toLowerCase()));
+    input.addEventListener('focus', () => render(input.value.trim().toLowerCase()));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const first = list.querySelector('a');
+        if (first) window.location.href = first.getAttribute('href');
+      } else if (e.key === 'Escape') {
+        list.classList.remove('open');
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) list.classList.remove('open');
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initNavSearch);
