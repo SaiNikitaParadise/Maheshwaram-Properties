@@ -41,7 +41,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       stateEl.textContent = "This article couldn't be found — it may have been unpublished.";
       return;
     }
-    document.title = `${post.title} | Maheshwaram Properties`;
+    const pageTitle = post.metaTitle || `${post.title} | Maheshwaram Properties`;
+    const pageDesc = post.metaDescription || post.excerpt || "";
+    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/post.html?slug=${encodeURIComponent(slug)}`;
+    document.title = pageTitle;
+    setMetaTag("name", "description", pageDesc);
+    setMetaTag("property", "og:title", pageTitle);
+    setMetaTag("property", "og:description", pageDesc);
+    setMetaTag("property", "og:url", canonicalUrl);
+    setMetaTag("name", "twitter:title", pageTitle);
+    setMetaTag("name", "twitter:description", pageDesc);
+    if (post.focusKeyword) setMetaTag("name", "keywords", post.focusKeyword);
+    if (post.imageUrl) {
+      setMetaTag("property", "og:image", post.imageUrl);
+      setMetaTag("name", "twitter:image", post.imageUrl);
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalUrl);
+
     const dateStr = post.publishedAt
       ? new Date(post.publishedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
       : "";
