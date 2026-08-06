@@ -2,6 +2,17 @@
    Single blog post — fetches one post from Sanity
    by ?slug= in the URL
    =========================================== */
+function setMetaTag(attr, key, value) {
+  if (!value) return;
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", value);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("post-content");
   const stateEl = document.getElementById("post-state");
