@@ -2,6 +2,17 @@
    Single blog post — fetches one post from Sanity
    by ?slug= in the URL
    =========================================== */
+function setMetaTag(attr, key, value) {
+  if (!value) return;
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", value);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("post-content");
   const stateEl = document.getElementById("post-state");
@@ -23,6 +34,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     title,
     excerpt,
     publishedAt,
+    metaTitle,
+    metaDescription,
+    focusKeyword,
     "category": category->title,
     "authorName": author->name,
     "imageUrl": mainImage.asset->url,
@@ -38,7 +52,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       stateEl.textContent = "This article couldn't be found — it may have been unpublished.";
       return;
     }
-    document.title = `${post.title} | Maheshwaram Properties`;
+    const pageTitle = post.metaTitle || `${post.title} | Maheshwaram Properties`;
+    const pageDesc = post.metaDescription || post.excerpt || "";
+    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/post.html?slug=${encodeURIComponent(slug)}`;
+    document.title = pageTitle;
+    setMetaTag("name", "description", pageDesc);
+    setMetaTag("property", "og:title", pageTitle);
+    setMetaTag("property", "og:description", pageDesc);
+    setMetaTag("property", "og:url", canonicalUrl);
+    setMetaTag("name", "twitter:title", pageTitle);
+    setMetaTag("name", "twitter:description", pageDesc);
+    if (post.focusKeyword) setMetaTag("name", "keywords", post.focusKeyword);
+    if (post.imageUrl) {
+      setMetaTag("property", "og:image", post.imageUrl);
+      setMetaTag("name", "twitter:image", post.imageUrl);
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalUrl);
+
     const dateStr = post.publishedAt
       ? new Date(post.publishedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
       : "";
