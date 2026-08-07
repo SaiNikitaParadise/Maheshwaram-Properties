@@ -57,7 +57,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     const pageTitle = post.metaTitle || `${post.title} | Maheshwaram Properties`;
     const pageDesc = post.metaDescription || post.excerpt || "";
-    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/post.html?slug=${encodeURIComponent(slug)}`;
+    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/${encodeURIComponent(slug)}`;
+    if (window.location.pathname.endsWith("/post.html")) {
+      window.history.replaceState({}, "", `/blog/${encodeURIComponent(slug)}`);
+    }
     document.title = pageTitle;
     setMetaTag("name", "description", pageDesc);
     setMetaTag("property", "og:title", pageTitle);
