@@ -52,7 +52,7 @@ function postCardHtml(post) {
         <span class="blog-meta">${escapeHtml(metaParts.join(" · "))}</span>
         <h3>${escapeHtml(post.title || "Untitled")}</h3>
         <p class="blog-excerpt">${escapeHtml(post.excerpt || "")}</p>
-        <a href="blog/post.html?slug=${encodeURIComponent(post.slug)}" class="btn btn-gold-sm">Read Article →</a>
+        <a href="/blog/${encodeURIComponent(post.slug)}" class="btn btn-gold-sm">Read Article →</a>
       </div>
     </div>
   `;

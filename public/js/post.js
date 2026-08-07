@@ -24,11 +24,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  // Support clean URLs (/blog/my-post) and legacy ?slug= links
+  const pathSlug = decodeURIComponent(window.location.pathname.replace(/\/+$/, "").split("/").pop() || "");
+  const slug = params.get("slug") || (pathSlug && pathSlug !== "post.html" ? pathSlug : "");
   if (!slug) {
     stateEl.textContent = "No article specified.";
     return;
   }
+
 
   const query = `*[_type == "post" && slug.current == $slug][0]{
     title,
@@ -54,7 +57,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     const pageTitle = post.metaTitle || `${post.title} | Maheshwaram Properties`;
     const pageDesc = post.metaDescription || post.excerpt || "";
-    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/post.html?slug=${encodeURIComponent(slug)}`;
+    const canonicalUrl = `https://www.maheshwaramproperties.in/blog/${encodeURIComponent(slug)}`;
+    if (window.location.pathname.endsWith("/post.html")) {
+      window.history.replaceState({}, "", `/blog/${encodeURIComponent(slug)}`);
+    }
     document.title = pageTitle;
     setMetaTag("name", "description", pageDesc);
     setMetaTag("property", "og:title", pageTitle);
