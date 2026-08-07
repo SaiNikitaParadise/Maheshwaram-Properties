@@ -24,11 +24,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  // Support clean URLs (/blog/my-post) and legacy ?slug= links
+  const pathSlug = decodeURIComponent(window.location.pathname.replace(/\/+$/, "").split("/").pop() || "");
+  const slug = params.get("slug") || (pathSlug && pathSlug !== "post.html" ? pathSlug : "");
   if (!slug) {
     stateEl.textContent = "No article specified.";
     return;
   }
+
 
   const query = `*[_type == "post" && slug.current == $slug][0]{
     title,
