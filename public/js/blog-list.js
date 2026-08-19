@@ -43,11 +43,14 @@ function postCardHtml(post) {
   if (post.authorName) metaParts.push(post.authorName);
   if (dateStr) metaParts.push(dateStr);
   const img = post.imageUrl || "../images/ventures_bg.jpg";
+  const postUrl = `/blog/${encodeURIComponent(post.slug)}`;
   return `
     <div class="blog-card">
-      <div class="blog-card-img-wrap">
-        <img src="${img}" alt="${escapeHtml(post.title || "")}" class="blog-card-img" />
-      </div>
+      <a href="${postUrl}" class="blog-card-img-link" aria-label="Read ${escapeHtml(post.title || "article")}">
+        <div class="blog-card-img-wrap">
+          <img src="${img}" alt="${escapeHtml(post.title || "")}" class="blog-card-img" />
+        </div>
+      </a>
       <div class="blog-card-body">
         <span class="blog-meta">${escapeHtml(metaParts.join(" · "))}</span>
         <h3>${escapeHtml(post.title || "Untitled")}</h3>
