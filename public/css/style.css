@@ -1887,7 +1887,11 @@ transition: var(--transition);
 
 .blog-card-img-wrap { position: relative; aspect-ratio: 16/10; overflow: hidden; }
 
-.blog-card-img { width: 100%; height: 100%; object-fit: cover; }
+.blog-card-img-link { display: block; cursor: pointer; }
+.blog-card-img-link:hover .blog-card-img,
+.blog-card-img-link:focus .blog-card-img { transform: scale(1.05); }
+
+.blog-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 
 .blog-card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 
