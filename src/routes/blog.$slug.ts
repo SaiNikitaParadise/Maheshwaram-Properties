@@ -84,6 +84,7 @@ function injectMeta(html: string, slug: string, post: Record<string, string>) {
 }
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   server: {
     handlers: {
       GET: async ({ params }: { params: { slug: string } }) => {
