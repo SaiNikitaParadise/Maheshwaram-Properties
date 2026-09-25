@@ -199,6 +199,9 @@ function setActiveNav() {
   } else if (path.includes('contact')) {
     const contactNav = document.getElementById('nav-contact');
     if (contactNav) contactNav.classList.add('active');
+  } else if (path.includes('customers')) {
+    const customersNav = document.getElementById('nav-customers');
+    if (customersNav) customersNav.classList.add('active');
   } else {
     const homeNav = document.getElementById('nav-home');
     if (homeNav) homeNav.classList.add('active');

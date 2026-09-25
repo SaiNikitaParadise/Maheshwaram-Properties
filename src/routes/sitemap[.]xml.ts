@@ -17,6 +17,7 @@ const STATIC_PAGES: string[] = [
   "/ventures.html",
   "/services.html",
   "/contact.html",
+  "/customers.html",
   "/blog.html",
   "/ventures/chalapathi-estates-kandukur.html",
   "/ventures/chalapathi-garden.html",
