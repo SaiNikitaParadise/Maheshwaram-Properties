@@ -25,6 +25,7 @@ const STATIC_PAGES: string[] = [
   "/ventures/chalapathi-paradise.html",
   "/ventures/cyber-space.html",
   "/ventures/east-gate-nagaram.html",
+  "/ventures/vision-meadows-spandana.html",
   "/ventures/green-city-elite.html",
   "/ventures/karvy-nova.html",
   "/ventures/magadha-riviera.html",
