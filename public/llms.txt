@@ -5,7 +5,7 @@
 ## Main Pages
 - [Home](https://www.maheshwaramproperties.in/): Overview of Maheshwaram Properties, featured ventures and enquiry options.
 - [About Us](https://www.maheshwaramproperties.in/about.html): Company history since 2002, values and who we help.
-- [Ventures](https://www.maheshwaramproperties.in/ventures.html): Complete list of 16 plotted developments with search.
+- [Ventures](https://www.maheshwaramproperties.in/ventures.html): Complete list of 17 ventures — plotted developments and the Vision Meadows Spandana villa community — with search.
 - [Services](https://www.maheshwaramproperties.in/services.html): Plot sales, resale, investment advisory, documentation and registration.
 - [Contact Us](https://www.maheshwaramproperties.in/contact.html): Phone +91 99082 24832, WhatsApp enquiry form, office location.
 - [Blog](https://www.maheshwaramproperties.in/blog.html): Articles on plot buying, approvals and South Hyderabad real estate.
@@ -28,6 +28,7 @@
 - [Song of the South](https://www.maheshwaramproperties.in/ventures/song-of-the-south.html): Song of the South — Premium residential layout in Dubbacharla, Maheshwaram. DTCP approved open plots near ORR, Srisailam Highway, and Shamshabad Airport.
 - [Vision Meadows Seasons](https://www.maheshwaramproperties.in/ventures/vision-meadows.html): Vision Meadows Seasons — 27.38-acre gated residential community with 347 plots in Maheshwaram, Hyderabad. Landscaped gardens. Near ORR & Airport.
 - [Vision Palm Meadows](https://www.maheshwaramproperties.in/ventures/vision-palm-meadows.html): Vision Palm Meadows — 16-acre DTCP approved gated community with 203 residential plots in Mansanpally, Maheshwaram. 24/7 security, underground drainage. Near ORR & Airport.
+- [Vision Meadows Spandana](https://www.maheshwaramproperties.in/ventures/vision-meadows-spandana.html): Vision Meadows Spandana — ready-to-move housing society in Maheshwaram, Hyderabad, spread over 43 acres with 3BHK villas in varied budget ranges. Families have started moving in. Near ORR & Shamshabad Airport.
 
 ## Contact
 - Phone / WhatsApp: +91 99082 24832
