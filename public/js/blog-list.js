@@ -1,6 +1,15 @@
 /* ===========================================
    Blog listing — fetches posts from Sanity
    =========================================== */
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("blog-grid");
   const stateEl = document.getElementById("blog-state");
@@ -42,7 +51,7 @@ function postCardHtml(post) {
   const metaParts = [post.category || "Article"];
   if (post.authorName) metaParts.push(post.authorName);
   if (dateStr) metaParts.push(dateStr);
-  const img = post.imageUrl || "../images/ventures_bg.jpg";
+  const img = post.imageUrl || "/images/ventures_bg.jpg";
   const postUrl = `/blog/${encodeURIComponent(post.slug)}`;
   return `
     <div class="blog-card">
