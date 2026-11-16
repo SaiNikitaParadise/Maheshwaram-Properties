@@ -10,10 +10,10 @@ const context = vm.createContext({
 });
 vm.runInContext(source, context);
 
-test("the most recently updated article sorts first", () => {
+test("the newest-created article sorts first", () => {
   const posts = [
-    { title: "Older post", _updatedAt: "2026-09-25T07:25:35Z" },
-    { title: "New post", _updatedAt: "2026-11-16T09:21:01Z" },
+    { title: "Older post", _createdAt: "2026-09-25T07:25:35Z" },
+    { title: "New post", _createdAt: "2026-11-16T07:19:05Z" },
   ];
 
   const sortedTitles = Array.from(context.sortPostsNewestFirst(posts), (post) => post.title);

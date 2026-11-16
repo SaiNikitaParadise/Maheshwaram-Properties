@@ -13,10 +13,10 @@ function escapeHtml(str) {
 
 function sortPostsNewestFirst(posts) {
   return [...posts].sort((first, second) => {
-    const firstUpdatedAt = Date.parse(first._updatedAt || "");
-    const secondUpdatedAt = Date.parse(second._updatedAt || "");
-    const firstTimestamp = Number.isFinite(firstUpdatedAt) ? firstUpdatedAt : 0;
-    const secondTimestamp = Number.isFinite(secondUpdatedAt) ? secondUpdatedAt : 0;
+    const firstCreatedAt = Date.parse(first._createdAt || "");
+    const secondCreatedAt = Date.parse(second._createdAt || "");
+    const firstTimestamp = Number.isFinite(firstCreatedAt) ? firstCreatedAt : 0;
+    const secondTimestamp = Number.isFinite(secondCreatedAt) ? secondCreatedAt : 0;
     return secondTimestamp - firstTimestamp;
   });
 }
@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const query = `*[_type == "post"] | order(_updatedAt desc){
+  const query = `*[_type == "post"] | order(_createdAt desc){
     title,
     "slug": slug.current,
     excerpt,
-    _updatedAt,
+    _createdAt,
     publishedAt,
     "category": category->title,
     "authorName": author->name,
