@@ -10,6 +10,17 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+
+function sortPostsNewestFirst(posts) {
+  return [...posts].sort((first, second) => {
+    const firstCreatedAt = Date.parse(first._createdAt || "");
+    const secondCreatedAt = Date.parse(second._createdAt || "");
+    const firstTimestamp = Number.isFinite(firstCreatedAt) ? firstCreatedAt : 0;
+    const secondTimestamp = Number.isFinite(secondCreatedAt) ? secondCreatedAt : 0;
+    return secondTimestamp - firstTimestamp;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("blog-grid");
   const stateEl = document.getElementById("blog-state");
@@ -20,10 +31,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const query = `*[_type == "post"] | order(publishedAt desc){
+  const query = `*[_type == "post"] | order(_createdAt desc){
     title,
     "slug": slug.current,
     excerpt,
+    _createdAt,
     publishedAt,
     "category": category->title,
     "authorName": author->name,
@@ -37,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     stateEl.remove();
-    grid.innerHTML = posts.map(postCardHtml).join("");
+    grid.innerHTML = sortPostsNewestFirst(posts).map(postCardHtml).join("");
   } catch (err) {
     console.error(err);
     stateEl.textContent = "Couldn't load blog posts right now. Please try again shortly.";
