@@ -2,7 +2,7 @@
    JS — Maheshwaram Properties
    =========================== */
 
-// Navbar scroll effect
+// Navbar scroll effect — passive listener for smooth scrolling
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
   } else {
     navbar.classList.remove('scrolled');
   }
-});
+}, { passive: true });
 
 // Mobile hamburger menu
 const hamburger = document.getElementById('hamburger');
@@ -135,7 +135,6 @@ function initContactForm() {
   });
 }
 
-
 // Mini inquiry form on venture pages
 function initMiniForm() {
   const form = document.getElementById('venture-inquiry-form');
@@ -153,7 +152,7 @@ function initMiniForm() {
   });
 }
 
-// Counter animation for stat numbers
+// Counter animation for stat numbers — runs once when stats scroll into view
 function animateCounters() {
   const counters = document.querySelectorAll('.asc-number, .stat-num');
   counters.forEach(counter => {
@@ -183,7 +182,7 @@ if (statsSection) {
       }
     });
   }, { threshold: 0.5 });
-  statsSection && statsObserver.observe(statsSection);
+  statsObserver.observe(statsSection);
 }
 
 // Active nav link based on current page
@@ -208,13 +207,13 @@ function setActiveNav() {
   }
 }
 
-// Hero headline slideshow (right-to-left, GPU-accelerated transforms only)
+// Hero headline slideshow (GPU-accelerated transforms only)
 function initHeroSlider() {
   const slides = document.querySelectorAll('#hero-title-slider .hero-slide');
   if (slides.length < 2) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return; // keep first slide static, no animation
+  if (prefersReducedMotion) return;
 
   let current = 0;
   const total = slides.length;
@@ -225,12 +224,11 @@ function initHeroSlider() {
     const currentEl = slides[current];
     const nextEl = slides[next];
 
-    // Reset the incoming slide instantly off-screen right, no transition flash
     nextEl.style.transition = 'none';
     nextEl.classList.remove('exit');
     nextEl.style.transform = 'translateX(100%)';
     nextEl.style.opacity = '0';
-    void nextEl.offsetWidth; // force reflow so the reset applies before re-enabling transition
+    void nextEl.offsetWidth;
     nextEl.style.transition = '';
     nextEl.style.transform = '';
     nextEl.style.opacity = '';
@@ -245,19 +243,7 @@ function initHeroSlider() {
   setInterval(goToNext, DISPLAY_MS);
 }
 
-// Init
-document.addEventListener('DOMContentLoaded', () => {
-  initAnimations();
-  initContactForm();
-  initMiniForm();
-  setActiveNav();
-  initHeroSlider();
-  initVentureSearch();
-  // Start with scrolled navbar if not at top
-  if (window.scrollY > 60) navbar.classList.add('scrolled');
-});
-
-// Venture search filter
+// Venture search filter (ventures.html page)
 function initVentureSearch() {
   const input = document.getElementById('venture-search');
   const grid = document.getElementById('ventures-grid');
@@ -282,7 +268,7 @@ function initVentureSearch() {
   input.addEventListener('input', apply);
 }
 
-// Navbar venture search (uses the page's own ventures dropdown for correct paths)
+// Navbar venture search
 function initNavSearch() {
   const wraps = document.querySelectorAll('.nav-search');
   if (!wraps.length) return;
@@ -333,4 +319,14 @@ function initNavSearch() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initNavSearch);
+// Single DOMContentLoaded — initialise everything once
+document.addEventListener('DOMContentLoaded', () => {
+  initAnimations();
+  initContactForm();
+  initMiniForm();
+  setActiveNav();
+  initHeroSlider();
+  initVentureSearch();
+  initNavSearch();
+  if (navbar && window.scrollY > 60) navbar.classList.add('scrolled');
+});
