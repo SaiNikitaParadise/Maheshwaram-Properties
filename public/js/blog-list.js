@@ -1,5 +1,6 @@
 /* ===========================================
    Blog listing — fetches posts from Sanity
+   Fast: CDN cached, sessionStorage cached, deferred
    =========================================== */
 
 function escapeHtml(str) {
@@ -31,7 +32,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const query = `*[_type == "post"] | order(_createdAt desc){
+  // ── Cache: serve from sessionStorage so repeat visits are instant ──
+  const CACHE_KEY = "mp_blog_posts_v2";
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const posts = JSON.parse(cached);
+      if (posts && posts.length > 0) {
+        stateEl.remove();
+        grid.innerHTML = posts.map(postCardHtml).join("");
+        return;
+      }
+    }
+  } catch (_) { /* ignore bad cache */ }
+
+  // ── Only fetch the fields we need, limit to 12 posts ──
+  const query = `*[_type == "post"] | order(_createdAt desc)[0...12]{
     title,
     "slug": slug.current,
     excerpt,
@@ -48,8 +64,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       stateEl.textContent = "No blog posts published yet — check back soon.";
       return;
     }
+    const sorted = sortPostsNewestFirst(posts);
+    // Cache for this session
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify(sorted)); } catch(_) {}
     stateEl.remove();
-    grid.innerHTML = sortPostsNewestFirst(posts).map(postCardHtml).join("");
+    grid.innerHTML = sorted.map(postCardHtml).join("");
   } catch (err) {
     console.error(err);
     stateEl.textContent = "Couldn't load blog posts right now. Please try again shortly.";
@@ -69,7 +88,7 @@ function postCardHtml(post) {
     <div class="blog-card">
       <a href="${postUrl}" class="blog-card-img-link" aria-label="Read ${escapeHtml(post.title || "article")}">
         <div class="blog-card-img-wrap">
-          <img src="${img}" alt="${escapeHtml(post.title || "")}" class="blog-card-img" />
+          <img src="${img}" alt="${escapeHtml(post.title || "")}" class="blog-card-img" loading="lazy" width="480" height="300" />
         </div>
       </a>
       <div class="blog-card-body">
