@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { getRouterInstance } from "@tanstack/react-start";
 import {
   isSitemapRouteIncluded,
@@ -20,6 +20,7 @@ const STATIC_PAGES: string[] = [
   "/customers.html",
   "/privacy-policy.html",
   "/blog.html",
+  "/terms-of-use.html",
   "/ventures/chalapathi-estates-kandukur.html",
   "/ventures/chalapathi-garden.html",
   "/ventures/chalapathi-melbourne-kadthal.html",
