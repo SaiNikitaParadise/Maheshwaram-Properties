@@ -217,11 +217,12 @@ text-transform: uppercase;
 .nav-links {
 display: flex;
 align-items: center;
-gap: 28px;
+gap: 22px;
 }
 
 .nav-links a {
 color: rgba(255,255,255,0.85);
+white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -235,6 +236,7 @@ font-size: 0.93rem;
 font-weight: 500;
 color: rgba(255,255,255,0.85);
 letter-spacing: 0.03em;
+white-space: nowrap;
 transition: var(--transition);
 position: relative;
 padding-bottom: 4px;

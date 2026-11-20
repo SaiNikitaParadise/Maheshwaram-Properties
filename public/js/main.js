@@ -192,6 +192,9 @@ function setActiveNav() {
   if (path.includes('ventures')) {
     const ventureNav = document.getElementById('nav-ventures');
     if (ventureNav) ventureNav.classList.add('active');
+  } else if (path.includes('about')) {
+    const aboutNav = document.getElementById('nav-about');
+    if (aboutNav) aboutNav.classList.add('active');
   } else if (path.includes('services')) {
     const servicesNav = document.getElementById('nav-services');
     if (servicesNav) servicesNav.classList.add('active');
@@ -201,7 +204,16 @@ function setActiveNav() {
   } else if (path.includes('customers')) {
     const customersNav = document.getElementById('nav-customers');
     if (customersNav) customersNav.classList.add('active');
-  } else {
+  } else if (path.includes('privacy-policy')) {
+    const privacyNav = document.getElementById('nav-privacy');
+    if (privacyNav) privacyNav.classList.add('active');
+  } else if (path.includes('terms-of-use')) {
+    const termsNav = document.getElementById('nav-terms');
+    if (termsNav) termsNav.classList.add('active');
+  } else if (path.includes('blog')) {
+    const blogNav = document.getElementById('nav-blog');
+    if (blogNav) blogNav.classList.add('active');
+  } else if (path === '/' || path.includes('index')) {
     const homeNav = document.getElementById('nav-home');
     if (homeNav) homeNav.classList.add('active');
   }
