@@ -14,10 +14,10 @@ function escapeHtml(str) {
 
 function sortPostsNewestFirst(posts) {
   return [...posts].sort((first, second) => {
-    const firstCreatedAt = Date.parse(first._createdAt || "");
-    const secondCreatedAt = Date.parse(second._createdAt || "");
-    const firstTimestamp = Number.isFinite(firstCreatedAt) ? firstCreatedAt : 0;
-    const secondTimestamp = Number.isFinite(secondCreatedAt) ? secondCreatedAt : 0;
+    const firstDate = Date.parse(first.publishedAt || first._createdAt || "");
+    const secondDate = Date.parse(second.publishedAt || second._createdAt || "");
+    const firstTimestamp = Number.isFinite(firstDate) ? firstDate : 0;
+    const secondTimestamp = Number.isFinite(secondDate) ? secondDate : 0;
     return secondTimestamp - firstTimestamp;
   });
 }
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ── Cache: serve from sessionStorage so repeat visits are instant ──
-  const CACHE_KEY = "mp_blog_posts_v2";
+  const CACHE_KEY = "mp_blog_posts_v3";
   try {
     const cached = sessionStorage.getItem(CACHE_KEY);
     if (cached) {
@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   } catch (_) { /* ignore bad cache */ }
 
-  // ── Only fetch the fields we need, limit to 12 posts ──
-  const query = `*[_type == "post"] | order(_createdAt desc)[0...12]{
+  // ── Only fetch the fields we need ──
+  const query = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc){
     title,
     "slug": slug.current,
     excerpt,
