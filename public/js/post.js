@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const stateEl = document.getElementById("post-state");
   if (!container) return;
 
+  // Already server-side rendered — no need to re-fetch
+  if (!stateEl && container.children.length > 0) return;
+
   if (SANITY_CONFIG.projectId === "YOUR_PROJECT_ID") {
     stateEl.innerHTML = `Blog isn't connected yet — add your Sanity project ID in <code>../js/sanity-config.js</code>.`;
     return;

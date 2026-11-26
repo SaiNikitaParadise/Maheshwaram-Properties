@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (cached) {
       const posts = JSON.parse(cached);
       if (posts && posts.length > 0) {
-        stateEl.remove();
+        if (stateEl) stateEl.remove();
         grid.innerHTML = posts.map(postCardHtml).join("");
         return;
       }
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sorted = sortPostsNewestFirst(posts);
     // Cache for this session
     try { sessionStorage.setItem(CACHE_KEY, JSON.stringify(sorted)); } catch(_) {}
-    stateEl.remove();
+    if (stateEl) stateEl.remove();
     grid.innerHTML = sorted.map(postCardHtml).join("");
   } catch (err) {
     console.error(err);
